@@ -69,25 +69,192 @@ nav ul li a:hover::after {
     transform-origin: left;
     transform: scaleX(1);
 }
-
-
-
-
-
-
-
-
-
-.acc div.bg {
-    margin-top: 50px; /* Ajusté pour compenser la hauteur de la barre de navigation si nécessaire */
-    background: url("https://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg") center center no-repeat ; 
-    background-size: cover; /* Assurez-vous que l'image couvre toute la zone */
-    padding: 0; /* Éliminé le padding pour que l'image atteigne les bords */
-    height: 82vh; /* Hauteur ajustée pour une couverture complète, peut-être ajustée selon vos besoins */
-    width: 100%;
-  /* Inclut le padding et la bordure dans la largeur/hauteur */
-
+header h1 {
+    color: white;
 }
+
+
+
+
+
+
+
+/*.acc div.bg {
+    margin-top: 50px; 
+    background: url("https://static.cotemaison.fr/medias_11456/w_2048,h_1146,c_crop,x_0,y_126/w_640,h_360,c_fill,g_north/v1492703324/salon-ambiance-retro-avec-fauteuil-eames-lampe-pipistrello_5865839.jpg") center center no-repeat ; 
+    background-size: cover;
+    padding: 0; 
+    height: 82vh; 
+    width: 100%;
+    display: flex;
+    justify-content: center; 
+    align-items: center; 
+}*/
+
+
+/* Styles pour le conteneur principal .bg */
+.acc div.bg {
+    display: flex; /* Active Flexbox */
+    flex-direction: column; /* Organise les enfants en colonne */
+    align-items: center; /* Centre les éléments horizontalement */
+    justify-content: center; /* Centre les éléments verticalement */
+    text-align: center; /* Assure que le texte est centré */
+    background: url("../hey.jpg") center center no-repeat; /* Adaptez l'URL de l'image */
+    background-size: cover; /* Couvre l'ensemble du conteneur */
+    width: 100%; /* Largeur totale */
+    height: 90vh; /* Hauteur totale de la fenêtre */
+    padding: 20px 0; /* Espacement vertical pour l'esthétique */
+    color: white; /* Couleur du texte */
+}
+
+/* Styles pour le titre h2 */
+.acc div.bg h2 {
+    font-size: 3.5em; /* Taille du texte */
+    margin: 20px 0; /* Espacement autour du titre */
+    padding: 0; /* Pas de padding nécessaire ici */
+    font-weight: bolder; /* Rend le texte plus épais */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Ombre pour une meilleure lisibilité */
+    margin-top: -80px;
+}
+
+@media (max-width: 768px) {
+    .acc div.bg {
+        background-size: auto; 
+        height:     60vh;
+        
+    }
+}
+
+/* Media query for very small screens */
+@media (max-width: 480px) {
+    .acc div.bg {
+        background-size: contain; /* Adjust background size for very small screens */
+        height: 40vh; /* Adjust height for very small screens */
+       
+    }
+}
+
+
+
+
+
+
+
+
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%; /* Taille appropriée pour la barre de recherche */
+    background: rgba(255, 255, 255, 0.8); /* Semi-transparent pour un style esthétique */
+    padding: 10px;
+    border-radius: 40px; /* Bords arrondis */
+    margin-top: 10px; /* Espacement au-dessus de la barre de recherche */
+}
+
+/* Style pour l'input de texte */
+.search-container input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    border: none;
+    margin-right: 5px; /* Espacement avant le bouton */
+    border-radius: 30px; /* Bords arrondis pour l'input */
+}
+
+/* Style pour le bouton de recherche */
+.search-container button {
+    padding: 10px 20px;
+    background-color: rgba(255, 166, 0, 0.758);
+    border: none;
+    cursor: pointer;
+    border-radius: 40px; /* Bords arrondis pour le bouton */
+}
+
+/* Style pour le bouton au survol */
+.search-container button:hover {
+    background-color: #e2e2e2; /* Changement de couleur au survol */
+}
+
+/* Style pour les résultats de recherche */
+.search-results {
+    position: absolute;
+    top: 100%; /* Positionne les résultats juste en dessous de la barre de recherche */
+    left: 0;
+    right: 0;
+    background-color:grey; /* Fond blanc pour les résultats */
+    border: 1px solid #ddd;
+    border-radius: 10px; /* Bords arrondis */
+    max-height: 200px;
+    overflow-y: auto; /* Ajoute un défilement si les résultats dépassent la hauteur maximale */
+    margin-top: 5px; /* Espacement entre la barre de recherche et les résultats */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Ajoute une ombre pour un effet de profondeur */
+    display: none; /* Les résultats sont cachés par défaut */
+    z-index: 10; /* S'assure que les résultats s'affichent au-dessus des autres éléments */
+}
+
+/* Style pour chaque élément de résultat */
+.search-results p {
+    margin: 0;
+    padding: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s; /* Transition pour l'effet de survol */
+}
+
+/* Changement de couleur au survol de chaque élément */
+.search-results p:hover {
+    background-color: darkgrey;
+}
+
+
+@media (max-width: 768px) {
+    .search-results {
+        left: 10px;
+        right: 10px;
+        max-height: 150px;
+    }
+
+    .search-results p {
+        padding: 8px;
+    }
+}
+
+/* Pour les écrans de 480px et moins */
+@media (max-width: 480px) {
+    .search-results {
+        left: 5px;
+        right: 5px;
+        max-height: 100px;
+    }
+
+    .search-results p {
+        padding: 6px;
+        font-size: 0.9em;
+    }
+}
+
+
+
+
+
+
+@media (max-width: 768px) {
+    .acc div.bg h2 {
+        font-size: 1.5em; /* Réduit la taille de la police sur les petits écrans */
+        padding: 10px 0; /* Moins d'espace sur les petits écrans */
+        padding-top: 80px;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-container {
+        width: 80%; /* Augmente la largeur sur les petits écrans pour une meilleure visibilité */
+   
+    }
+}
+
+
+
 
 
 .acc section {
@@ -105,7 +272,7 @@ footer {
     width:100%;
     /*padding-top:10px;*/
     padding-left:10px;
-    height: 100px;
+    height: 140px;
     background:#112e42;
     display:flex;
     justify-content:space-between;
@@ -118,14 +285,6 @@ footer a{
     color:white
 }
 
-/*.home-sci {
-    position: absolute;
-    bottom:2rem;
-    width:170px;
-    display:flex;
-    justify-content: space-between;
-   
-}*/
 
  
   
@@ -135,23 +294,272 @@ footer a{
 
   }
   
-  footer article {
-    display: flex; /* Active flexbox pour cet élément */
-    align-items: center; /* Centre les icônes verticalement */
-    justify-content: flex-start; /* Aligner les icônes à gauche */
-    gap: 15px; /* Espace fixe entre chaque icône */
-    margin-top: 8px; /* Espace au-dessus des icônes */
+  
+
+footer article {
+    display: flex; /* Continue à utiliser flexbox */
+    flex-direction: column; /* Change la direction de flex pour aligner les éléments verticalement */
+    align-items: flex-start; /* Aligner les éléments à gauche */
+    gap: 14px; /* Espace vertical entre les éléments */
+    margin-top: 10px; /* Espace au-dessus du premier élément */
+
 }
 
 footer div.first{
-    padding-bottom:21px;
+    padding-bottom:52px;
 }
 footer div.second {
-    padding-bottom:21px;
+    padding-bottom:84px;
     padding-right:100px;
 
 }
+
+footer div.middle {
+    padding-bottom: 24px;
+}
   
+.first-div {
+    margin-bottom:-50px;
+}
+
+
+
+
+
+
+
+
+@media (max-width: 768px) {
+    footer {
+        padding-left: 5px;
+        padding-right: 5px;
+       
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        height: auto;
+        padding: 20px;
+    }
+
+    footer div.first,
+    footer div.second,
+    footer div.middle {
+        margin-top: 5px;
+    }
+
+    footer article {
+        gap: 10px;
+        margin-top: 5px;
+    }
+
+    footer a,
+    footer h3 {
+        font-size: 0.7rem; /* Réduit la taille des textes pour les petits écrans */
+    }
+    footer .first {
+        padding-right: 10px;
+        padding-top: 10px;
+    }
+
+    footer .second {
+        margin-left:6px;
+        padding-top: 30px;
+    }
+
+    footer .middle {
+        padding-top: 30px;
+    }
+    footer h3 {
+        padding-bottom: 8px;
+    }
+}
+
+
+
+
+
+
+
+
+
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 25px;
+    position: relative;
+    z-index: 1;
+    margin-right: -40px;
+}
+
+.menu-icon div {
+    background-color: whitesmoke;
+    height: 4px;
+    width: 100%;
+    margin: 5px 0;
+    transition: 0.4s;
+}
+
+.change .bar1 {
+    transform: rotate(-45deg) translate(-5px, 6px);
+}
+
+.change .bar2 {
+    opacity: 0;
+}
+
+.change .bar3 {
+    transform: rotate(45deg) translate(-5px, -6px);
+}
+
+/* Fullscreen menu styles */
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+
+    nav ul {
+        display: none;
+        flex-direction: column;
+        position: fixed;
+        top: 64px; 
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(17, 46, 66, 0.95); 
+        padding-top: 20px;
+        z-index: 0;
+        text-align: center;
+    }
+
+    nav ul.active {
+        display: flex;
+    }
+
+    nav ul li {
+        margin: 50px 0;
+        width: 100%;
+     
+
+    }
+
+    nav ul li a {
+        color: white; 
+        font-size: 1.5em; 
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+a {
+    text-decoration: none;
+}
+
+/* Optional: Customize link styles */
+a:hover {
+    text-decoration: none; /* Optional: add underline on hover */
+    color: darkcyan; /* Change the color on hover */
+}
+
+.first a,
+.second a,
+article a {
+    color: white; /* Set the color of the links */
+}
+
+.second a:hover {
+    color: darkcyan;
+    
+}
+/* Style for the button class */
+.btn {
+    padding: 10px 20px;
+    background-color: rgba(255, 166, 0, 0.758);
+    border: none;
+    cursor: pointer;
+    border-radius: 6px;
+    color: #fff; /* White text color */
+}
+
+/* Optional: Change button color on hover */
+.btn:hover {
+    background-color: #e2e2e2;
+    color: #000; /* Black text color */
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 .infos section {
     padding-top:100px;
@@ -215,9 +623,689 @@ footer div.second {
 
 }
 
-.Mentions section {
-    padding-top:100px;
-    padding-left:20px;
-    padding-bottom: 400px;
+@media (max-width: 1200px) {
+    .infos h2 {
+        font-size: 22px;
+        padding-left: 200px; /* Reduce padding */
+        padding-top: 70px;
+    }
+    
+    .infos .content-box p {
+        width: 90%; /* Increase width */
+        margin: 15px; /* Reduce margin */
+    }
 }
 
+@media (max-width: 992px) {
+    .infos h2 {
+        font-size: 20px;
+        padding-left: 100px; /* Further reduce padding */
+        padding-top: 70px;
+    }
+    
+    .infos .content-box p {
+        width: 95%; /* Further increase width */
+        margin: 10px; /* Further reduce margin */
+    }
+}
+
+@media (max-width: 768px) {
+    .infos section {
+        padding-top: 50px; /* Reduce top padding */
+        padding-left: 10px; /* Reduce left padding */
+    }
+
+    .infos h2 {
+        font-size: 18px;
+        padding-left: 50px; /* Further reduce padding */
+        text-align: center; /* Center-align text */
+        padding-top: 70px;
+    }
+    
+    .infos .content-box p {
+        width: 100%; /* Full width */
+        margin: 10px 0; /* Reduce margin */
+    }
+}
+
+@media (max-width: 576px) {
+    .infos section {
+        padding-top: 30px; /* Further reduce top padding */
+        padding-left: 5px; /* Further reduce left padding */
+    }
+
+    .infos h2 {
+        font-size: 16px;
+        padding-left: 0; /* No padding */
+        text-align: center; /* Center-align text */
+        padding-top: 70px;
+    }
+    
+    .infos .content-box p {
+        width: 100%; /* Full width */
+        margin: 5px 0; /* Further reduce margin */
+        padding: 10px; /* Reduce padding */
+    }
+
+    .infos p {
+        font-size: 14px; /* Reduce font size */
+    }
+}
+
+
+
+
+
+
+.Mentionss main {
+    flex:1;
+}
+
+
+
+.Mentionss section {
+    padding-top: 10px;
+    padding-left: 20px;
+    padding-bottom: 300px; 
+}
+
+@media (min-width: 1200px) {
+    .Mentionss section {
+        padding-top: 80px;
+        padding-left: 20px;
+        /* padding-bottom: 300px; /* Supprimez cette ligne */
+    }
+}
+
+/* Medium screens */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .Mentionss section {
+        padding-top: 60px;
+        padding-left: 15px;
+        /* padding-bottom: 250px; /* Supprimez cette ligne */
+    }
+
+    .Mentionss footer {
+        margin-bottom: 0;
+    }
+}
+
+/* Small screens */
+@media (min-width: 768px) and (max-width: 991px) {
+    .Mentionss section {
+        padding-top: 40px;
+        padding-left: 10px;
+        /* padding-bottom: 200px; /* Supprimez cette ligne */
+    }
+
+    .Mentionss footer {
+        margin-bottom: 0;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 767px) {
+    .Mentionss section {
+        padding-top: 20px;
+        padding-left: 5px;
+        /* padding-bottom: 150px; /* Supprimez cette ligne */
+    }
+
+    .Mentionss footer {
+        margin-bottom: 0;
+    }
+}
+/*logements disponibles*/
+
+
+
+.alife {
+    display: flex; /* Active Flexbox */
+    flex-wrap: wrap; /* Permet aux cartes de se répartir sur plusieurs lignes */
+    justify-content: flex-start; /* Met un espace entre les éléments enfant */
+    align-items: flex-start; /* Alignement vertical en haut */
+    gap: 120px; /* Espace entre les cartes */
+}
+
+/*.card, .card1, .card2, .card3, .card4 {
+    width: calc(25% - 20px); 
+    margin: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}*/
+/*.card, .card1, .card2 {
+    width: calc(33.33% - 20px);
+    margin: 10px; 
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+}*/
+
+
+.card ,.card1,.card2,.card3,.card4 {
+    width: 300px;
+    margin: 10px ;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+   
+}
+
+.card3 {
+
+    margin-left:200px;
+
+
+
+}
+
+.card:hover ,.card1:hover,.card2:hover,.card3:hover,.card4:hover{
+    box-shadow: 0 4px 8px aquamarine;
+
+}
+
+
+.appart .image-container img ,.appart .image-container1 img,.appart .image-container2 img,.appart .image-container3 img,.appart .image-container4 img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.overlay ,.overlay1,.overlay2,.overlay3,.overlay4{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.appart .image-container:hover .overlay, .image-container1:hover .overlay1,.image-container2:hover .overlay2, .image-container3:hover .overlay3,.image-container4:hover .overlay4 {
+    opacity: 1;
+}
+
+.appart .info ,.info1,.info2,.info3,.info4{
+    padding: 10px;
+}
+
+
+
+.price ,.price1, .price2 ,.price3 ,.price4{
+    color: green;
+    font-weight: bold;
+}
+
+
+
+
+
+
+.prev, .next ,.prev1 ,.next1,.prev2 ,.next2,.prev3 ,.next3,.prev4 ,.next4{
+    background-color: rgba(255, 255, 255, 0.648); /* Fond blanc pour les boutons */
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+    font-size: 18px;
+    width: 30px; /* Diamètre du cercle */
+    height: 30px; /* Diamètre du cercle */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%; /* Rend le bouton circulaire */
+    position: absolute; /* Positionnement absolu à l'intérieur de l'overlay */
+}
+
+.prev ,.prev1,.prev2,.prev3,.prev4{
+    left: 20px; /* Espacement depuis le bord gauche */
+    top: 50%;
+    transform: translateY(-50%); /* Centrer verticalement */
+}
+
+.next ,.next1,.next2 ,.next3,.next4{
+    right: 20px; /* Espacement depuis le bord droit */
+    top: 50%;
+    transform: translateY(-50%); /* Centrer verticalement */
+}
+
+
+
+
+
+
+
+
+.image-container,.image-container1,.image-container2,.image-container3,.image-container4 {
+    position: relative;
+    width: 100%; /* ajustez selon la largeur désirée */
+    overflow: hidden; /* masque les parties des images qui débordent */
+    height:290px;
+}
+
+.image-slider,.image-slider1,.image-slider2 ,.image-slider3 ,.image-slider4{
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+
+.slide ,.slide1,.slide2,.slide3,.slide4{
+    min-width: 100%; /* chaque image prend toute la largeur du conteneur */
+    height: auto;
+    display: block;
+}
+
+
+.jay {
+    margin-top: 10px
+}
+
+.appart > h1:first-child {
+    margin-top:80px;
+    margin-left:20px
+}
+
+
+
+
+
+
+.modal-header, .modal-body, .modal-footer,.modal-header1,.modal-body1,.modal-footer1,.modal-header2,.modal-body2,.modal-footer2,.modal-header3,.modal-body3,.modal-footer3,.modal-header4,.modal-body4,.modal-footer4 {
+    padding: 10px;
+}
+
+.price-tag,.price-tag1,.price-tag2,.price-tag3,.price-tag4 {
+    background-color: green;
+    color: white;
+    padding: 5px;
+    float: right;
+}
+
+
+
+.icon,.icon1,.icon2 ,.icon3 ,.icon4  {
+    margin-right: 5px;
+}
+
+
+
+
+
+
+.image-gallery ,.image-gallery1,.image-gallery2,.image-gallery3,.image-gallery4{
+    display: flex;
+    overflow-x: auto;  /* Permet de défiler horizontalement */
+    padding: 10px 0;
+    border-top: 1px solid #ccc; /* Ajoute une ligne séparatrice */
+}
+
+.thumbnail ,.thumbnail1,.thumbnail2,.thumbnail3,.thumbnail4{
+    width: 80px;  /* Largeur fixe pour toutes les miniatures */
+    height: 60px; /* Hauteur fixe pour toutes les miniatures */
+    margin-right: 5px; /* Espace entre les miniatures */
+    cursor: pointer; /* Indique que l'image peut être cliquée */
+    transition: transform 0.3s ease; /* Effet de zoom au survol */
+}
+
+.thumbnail:hover,.thumbnail1:hover,.thumbnail2:hover,.thumbnail3:hover,.thumbnail4:hover {
+    transform: scale(1.1); /* Zoom légèrement sur l'image au survol */
+}
+
+
+.main-image,.main-image1,.main-image2,.main-image3,.main-image4 {
+    width: 100%;  /* Utilisez la largeur totale du modal */
+    height: 310px; /* Hauteur fixe pour une apparence uniforme */
+    object-fit: cover; /* Assure que l'image couvre l'espace sans être déformée */
+    margin-bottom: 20px; /* Espace entre l'image principale et le contenu en dessous */
+}
+
+
+
+.modal,.modal1,.modal2,.modal3,.modal4 {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1001; /* Sit on top */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: hidden; /* No scrolling on the background */
+    background-color: rgba(0,0,0,0.6); /* Dimmed background */
+}
+
+.modal-content ,.modal-content1,.modal-content2,.modal-content3,.modal-content4{
+    position: relative;
+    background-color: #fefefe;
+    margin: 5% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 50%; /* Adjust as needed */
+    border-radius: 8px;
+    max-height: 70vh;
+    overflow-y: auto; /* Enables scrolling within the modal content if needed */
+}
+
+.modal-header, .modal-footer,.modal-header1,.modal-footer1,.modal-header2,.modal-footer2,.modal-header3,.modal-footer3,.modal-header4,.modal-footer4 {
+    padding: 10px;
+}
+
+.modal-body,.modal-body1,.modal-body2,.modal-body3,.modal-body4 {
+    max-height: 500px; /* Adjust based on your content needs */
+    overflow-y: auto; /* Allows scrolling */
+}
+
+.close ,.close1,.close2,.close3,.close4{
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,.close1:hover,.close2:hover,.close3:hover,.close4:hover
+.close:focus,.close1:focus ,.close2:focus,.close3:focus,.close4:focus{
+    color: black;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+
+.details h3,.details1 h3,.details2 h3,.details3 h3,.details4 h3 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+ 
+ 
+ .equipment h4,.equipment1 h4,.equipment2 h4,.equipment3 h4,.equipment4 h4 {
+    margin-top:10px;
+    margin-bottom: 10px;
+ }
+.info h3 {
+    color:/* rgba(0, 139, 139, 0.763)*/darkgoldenrod;
+}
+.mine {
+    color: rgba(0, 139, 139, 0.763)
+}
+
+@media (min-width: 1200px) {
+    .card, .card1, .card2, .card3, .card4 {
+        width: calc(25% - 20px);
+    }
+}
+
+/* Medium screens */
+@media (min-width: 992px) and (max-width: 1199px) {
+    .card, .card1, .card2 {
+        width: calc(33.33% - 20px);
+    }
+}
+
+/* Small screens */
+@media (min-width: 768px) and (max-width: 991px) {
+    .card, .card1, .card2, .card3, .card4 {
+        width: calc(50% - 20px);
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 767px) {
+    .card, .card1, .card2, .card3, .card4 {
+        width: calc(100% - 20px);
+    }
+
+    .modal-content, .modal-content1, .modal-content2, .modal-content3, .modal-content4 {
+        width: 90%;
+        margin: 10% auto;
+        padding: 15px;
+    }
+
+    .main-image, .main-image1, .main-image2, .main-image3, .main-image4 {
+        height: 200px;
+    }
+
+    .prev, .next, .prev1, .next1, .prev2, .next2, .prev3, .next3, .prev4, .next4 {
+        width: 25px;
+        height: 25px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 991px) {
+    .card3 {
+        margin-left: 10px;
+    }
+}
+
+
+
+
+.faq {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #1e202a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    border-radius: 8px;
+}
+
+.faq h2 {
+    text-align: center;
+    font-size: 2em;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    margin-bottom: 10px;
+}
+
+.faq-question {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: darkcyan;
+    padding: 15px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.faq-question h3 {
+    margin: 0;
+    font-size: 1.2em;
+}
+
+.faq-answer {
+    display: none;
+    padding: 15px;
+    background-color:#112e42 ;
+    border-radius: 5px;
+    margin-top: 5px;
+}
+
+.arrow {
+    font-size: 1.2em;
+    transition: transform 0.3s;
+}
+
+.arrow.rotate {
+    transform: rotate(90deg);
+}
+
+.faq-item.big .faq-question h3  {
+    font-size: 1.7rem;
+    font-style: italic;
+}
+
+.faq h2 {
+    color:black
+}
+
+
+
+
+
+
+
+
+@media (max-width: 1200px) {
+    .faq {
+        max-width: 90%;
+        padding: 15px;
+    }
+    
+    .faq h2 {
+        font-size: 1.8em;
+    }
+   
+    .faq-question {
+        padding: 12px;
+    }
+    
+    .faq-question h3 {
+        font-size: 1.1em;
+    }
+    .faq-item.big .faq-question h3 {
+        font-size: 1.9em;
+    }
+    
+    .faq-answer {
+        padding: 12px;
+    }
+    
+    .arrow {
+        font-size: 1em;
+    }
+}
+
+@media (max-width: 768px) {
+    .faq {
+        max-width: 100%;
+        padding: 10px;
+    }
+    
+    .faq h2 {
+        font-size: 1.5em;
+    }
+
+    
+    .faq-question {
+        padding: 10px;
+    }
+    
+    .faq-question h3 {
+        font-size: 1em;
+    }
+    .faq-item.big .faq-question h3 {
+        font-size: 1.1em;
+
+    }
+    .faq-answer {
+        padding: 10px;
+    }
+    
+    .arrow {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 480px) {
+    .faq {
+        padding: 5px;
+    }
+    
+    .faq h2 {
+        font-size: 1.2em;
+    }
+
+    
+    .faq-question {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .faq-question h3 {
+        font-size: 0.9em;
+    }
+    .faq-item.big .faq-question h3{
+        font: size 1.3em; ;
+    }
+    
+    .faq-answer {
+        padding: 8px;
+    }
+    
+    .arrow {
+        font-size: 0.8em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+.menu-icon {
+    display: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ccc;
+}
+
+@media screen and (max-width: 768px) {
+    .menu-icon {
+        display: block;
+    }
+    
+    nav ul {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        padding-top: 50px;
+    }
+    
+    nav ul.active {
+        display: flex;
+    }
+    
+    nav ul li {
+        margin: 10px 0;
+    }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+ 
+
+
+
+
+
+
+
+ 
